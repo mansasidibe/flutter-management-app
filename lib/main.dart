@@ -1,3 +1,4 @@
+import 'package:commerce/transaction.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,12 +12,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'm Commerce',
-      home: const MyHomePage(),
+      home: MyHomePage(),
     );
   }
 }
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  
+  final List<Transaction> transaction = [];
+
 
   @override
   Widget build(BuildContext context) {
