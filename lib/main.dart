@@ -25,7 +25,19 @@ class MyHomePage extends StatelessWidget {
         title: Text('JenGu')
       ),
       body: Center(
-        child: Text(),  
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              child: Card(
+                color:Colors.blue,
+                child: Text('Panier'),
+                elevation: 5,
+              ),
+            ),
+            Card( child: Text('Liste des transaction')),
+          ],
+        ),  
       ),
     );
   }
