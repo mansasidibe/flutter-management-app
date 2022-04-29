@@ -16,31 +16,38 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-class MyHomePage extends StatelessWidget {
-  
-  final List<Transaction> transaction = [];
 
+class MyHomePage extends StatelessWidget {
+  final List<Transaction> transactions = [
+    Transaction(
+        id: "t1", titre: "Honor 9 lite", prix: 19000, date: DateTime.now()),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('JenGu')
-      ),
+      appBar: AppBar(title: Text('JenGu')),
       body: Center(
         child: Column(
           children: [
             Container(
               width: double.infinity,
               child: Card(
-                color:Colors.blue,
+                color: Colors.blue,
                 child: Text('Panier'),
                 elevation: 5,
               ),
             ),
-            Card( child: Text('Liste des transaction')),
+            // AFFICHAGE DES TRANSACTIONS
+            Column(
+              children: transactions.map((trans) {
+                return Card(
+                  child: Text(trans.titre),
+                );
+              }).toList(),
+            )
           ],
-        ),  
+        ),
       ),
     );
   }
