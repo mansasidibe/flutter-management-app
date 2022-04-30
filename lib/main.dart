@@ -1,5 +1,6 @@
 import 'package:commerce/transaction.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,8 +20,8 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatelessWidget {
   final List<Transaction> transactions = [
-    Transaction(
-        id: "t1", titre: "Honor 9 lite", prix: 19000, date: DateTime.now()),
+    Transaction("1", "Honor 9 lite", 2000, DateTime.now()),
+    Transaction("2", "Samsung", 92000, DateTime.now()),
   ];
 
   @override
@@ -65,7 +66,10 @@ class MyHomePage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                       Text(trans.titre, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,),),
-                      Text(trans.date.toString(), style: TextStyle(color: Colors.grey),),
+                      Text(
+                        DateFormat().format(trans.date),
+                        style: TextStyle(
+                        color: Colors.grey),),
                     ],),
                   ],)
                 );
