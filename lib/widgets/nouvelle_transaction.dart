@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 class NouvTransaction extends StatelessWidget {
+  final Function ajoutTrans;
   // const NouvTransaction({Key? key}) : super(key: key);
   final titreController = TextEditingController();
   final prixController = TextEditingController();
-  
+
+  NouvTransaction(this.ajoutTrans);
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -30,9 +33,7 @@ class NouvTransaction extends StatelessWidget {
             ),
             FlatButton(
                 onPressed: () {
-                  // print(champsTitre);
-                  // print(champsPrix);
-                  print(titreController.text);
+                  ajoutTrans(titreController.text, double.parse(prixController.text));
                 },
                 textColor: Colors.purple,
                 child: Text("Ajouter"))
