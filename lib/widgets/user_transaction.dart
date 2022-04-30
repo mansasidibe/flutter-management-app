@@ -3,18 +3,26 @@ import './liste_transaction.dart';
 import './nouvelle_transaction.dart';
 import 'package:commerce/models/transaction.dart';
 
-class _UserTransaction extends StatefulWidget {
-  _UserTransaction({Key? key}) : super(key: key);
+class UserTransaction extends StatefulWidget {
+  UserTransaction({Key? key}) : super(key: key);
 
   @override
-  State<_UserTransaction> createState() => __UserTransactionState();
+  State<UserTransaction> createState() => UserTransactionState();
 }
 
-class __UserTransactionState extends State<_UserTransaction> {
+class UserTransactionState extends State<UserTransaction> {
     final List<Transaction> _userTransactions = [
     Transaction("1", "Honor 9 lite", 2000, DateTime.now()),
     Transaction("2", "Samsung", 92000, DateTime.now()),
   ];
+
+  void _ajoutTransaction(String transTitre, double transPrix) {
+    const nouvTrans = Transaction(id: DateTime.now().toString(), titre: transTitre, prix: transPrix, date: DateTime.now());
+    setState(() {
+      _userTransactions.add(nouvTrans);
+    });
+  } 
+
   @override
   Widget build(BuildContext context) {
     return Column(
