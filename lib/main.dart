@@ -54,16 +54,18 @@ class MyHomePage extends StatelessWidget {
                           width: 2),
                           ),
                           padding: EdgeInsets.all(100),  
-                    child: Text(trans.prix.toString(),
+                    child: Text( '${trans.prix} FCFA',
                     style: TextStyle(fontWeight: FontWeight.bold,
                     fontSize: 20,
                     color: Colors.purple
                     ),
                     ),
                     ),
-                    Column(children: [
-                      Text(trans.titre),
-                      Text(trans.date.toString()),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                      Text(trans.titre, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,),),
+                      Text(trans.date.toString(), style: TextStyle(color: Colors.grey),),
                     ],),
                   ],)
                 );
