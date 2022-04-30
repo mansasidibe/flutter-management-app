@@ -8,9 +8,10 @@ class Transaction {
   final double prix;
   final DateTime date;
  
-  Transaction({
+  Transaction(
     @required this.id, 
     @required this.titre, 
     @required this.prix, 
-    @required this.date});
+    @required this.date
+    );
 }
