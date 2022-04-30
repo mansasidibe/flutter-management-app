@@ -28,55 +28,71 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('JenGu')),
-      body: Center(
-        child: Column(
-          children: [
-            Container(
-              width: double.infinity,
-              child: Card(
-                color: Colors.blue,
-                child: Text('Panier'),
-                elevation: 5,
+      body: Column(
+        // mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Container(
+            width: double.infinity,
+            child: Card(
+              color: Colors.blue,
+              child: Text('Panier'),
+              elevation: 5,
+            ),
+          ),
+          Card(
+            elevation: 5,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                TextField(decoration: InputDecoration(labelText: 'Titre'),),
+                TextField(decoration: InputDecoration(labelText: 'Prix'),),
+                FlatButton(onPressed: (){},
+                textColor: Colors.purple,
+                child: Text("Ajouter"))
+              ],
               ),
             ),
-            // AFFICHAGE DES TRANSACTIONS
-            Column(
-              children: transactions.map((trans) {
-                return Card(
-                  child: Row(children: [
-                    Container(
-                    margin: EdgeInsets.symmetric(
-                      vertical: 10, 
-                      horizontal: 15,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.purple, 
-                          width: 2),
-                          ),
-                          padding: EdgeInsets.all(100),  
-                    child: Text( '${trans.prix} FCFA',
-                    style: TextStyle(fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Colors.purple
+            ),
+          // AFFICHAGE DES TRANSACTIONS
+          Column(
+            children: transactions.map((trans) {
+              return Card(
+                child: Row(children: [
+                  Container(
+                  margin: EdgeInsets.symmetric(
+                    vertical: 10, 
+                    horizontal: 15,
                     ),
-                    ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                      Text(trans.titre, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,),),
-                      Text(
-                        DateFormat().format(trans.date),
-                        style: TextStyle(
-                        color: Colors.grey),),
-                    ],),
-                  ],)
-                );
-              }).toList(),
-            )
-          ],
-        ),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.purple, 
+                        width: 2),
+                        ),
+                        padding: EdgeInsets.all(100),  
+                  child: Text( '${trans.prix} FCFA',
+                  style: TextStyle(fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.purple
+                  ),
+                  ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                    Text(trans.titre, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,),),
+                    Text(
+                      DateFormat.yMMMd().format(trans.date),
+                      style: TextStyle(
+                      color: Colors.grey),),
+                  ],),
+                ],)
+              );
+            }).toList(),
+          )
+        ],
       ),
     );
   }
