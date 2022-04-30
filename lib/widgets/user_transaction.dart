@@ -17,7 +17,7 @@ class UserTransactionState extends State<UserTransaction> {
   ];
 
   void _ajoutTransaction(String transTitre, double transPrix) {
-    const nouvTrans = Transaction(id: DateTime.now().toString(), titre: transTitre, prix: transPrix, date: DateTime.now());
+    const nouvTrans = Transaction(DateTime.now().toString(), transTitre, transPrix, DateTime.now());
     setState(() {
       _userTransactions.add(nouvTrans);
     });
